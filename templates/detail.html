@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Apartment Details{% endblock %}
+{% block content %}
+<h1>{{ apartment.title }}</h1>
+<p>{{ apartment.price }} - {{ apartment.location }}</p>
+<p>{{ apartment.description }}</p>
+<a href="{{ apartment.link }}" target="_blank">View Listing</a>
+{% if apartment.seen %}<p>Marked as Seen</p>{% endif %}
+{% if apartment.loved %}<p>Marked as Loved</p>{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Configuration Details{% endblock %}
+{% block content %}
+<h1>Configuration Details</h1>
+
+<div>
+    <strong>City:</strong> {{ config.city }}<br>
+    <strong>Rooms:</strong> {{ config.rooms }}<br>
+    <strong>Price Range:</strong> {{ config.min_price }} - {{ config.max_price }}<br>
+    <strong>Square Meters:</strong> {{ config.min_square_meters }} - {{ config.max_square_meters }}<br>
+    <strong>Year Built:</strong> ≥ {{ config.min_year_built }}<br>
+    <strong>Exclude Words:</strong> {{ config.exclude_words }}<br>
+    <strong>Include Words:</strong> {{ config.include_words }}
+</div>
+
+<!-- Button to invoke scraping logic -->
+<form action="{{ url_for('config.scrape_with_config', config_id=config.id) }}" method="post">
+    <button type="submit">Scrape Now</button>
+</form>
+
+<a href="{{ url_for('config.list_configs') }}">Back to Configurations</a>
+{% endblock %}

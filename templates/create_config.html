@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block title %}Create Configuration{% endblock %}
+{% block content %}
+<h1>Create New Configuration</h1>
+
+<form action="{{ url_for('config.create_config') }}" method="post">
+    <label>Sites</label>
+    <select name="sites" multiple>
+        <option value="OLX">OLX</option>
+        <option value="STORIA">STORIA</option>
+        <option value="IMOBILIARE">IMOBILIARE</option>
+    </select>
+
+    <label>City:</label>
+    <select name="city" required>
+        <option value="">Select City</option>
+        <option value="Bucuresti">Bucuresti</option>
+        <option value="Cluj-Napoca">Cluj-Napoca</option>
+        <option value="Timisoara">Timișoara</option>
+        <option value="Iasi">Iași</option>
+        <option value="Constanta">Constanța</option>
+        <option value="Craiova">Craiova</option>
+        <option value="Brasov">Brașov</option>
+        <option value="Galati">Galați</option>
+        <option value="Ploiesti">Ploiești</option>
+        <option value="Oradea">Oradea</option>
+        <option value="Sibiu">Sibiu</option>
+        <option value="Arad">Arad</option>
+        <option value="Baia Mare">Baia Mare</option>
+        <option value="Buzau">Buzău</option>
+        <option value="Bacau">Bacău</option>
+        <option value="Satu Mare">Satu Mare</option>
+        <option value="Ramnicu Valcea">Râmnicu Vâlcea</option>
+        <option value="Targu Mures">Târgu Mureș</option>
+        <option value="Deva">Deva</option>
+        <option value="Suceava">Suceava</option>
+    </select>
+
+    <label>Min Number of Rooms:</label>
+    <input type="number" name="rooms" placeholder="Default: 1">
+
+    <label>Compartment:</label>
+     <select name="compartment">
+        <option value="">All</option>
+        <option value="decomandat">Decomandat</option>
+        <option value="semidecomandat">Semidecomandat</option>
+        <option value="nedecomandat">Nedecomandat</option>
+    </select>
+
+    <label>Minimum Price:</label>
+    <input type="number" name="min_price" placeholder="Default: 1">
+
+    <label>Maximum Price:</label>
+    <input type="number" name="max_price" placeholder="Default: 999999999">
+
+    <label>Minimum Square Meters:</label>
+    <input type="number" name="min_square_meters" placeholder="Default: 1">
+
+    <label>Maximum Square Meters:</label>
+    <input type="number" name="max_square_meters" placeholder="Default: 10000">
+
+    <label>Minimum Year Built:</label>
+    <input type="number" name="min_year_built" placeholder="Default: 1900">
+
+    <label>Exclude Words (comma-separated):</label>
+    <input type="text" name="exclude_words">
+
+    <label>Include Words (comma-separated):</label>
+    <input type="text" name="include_words">
+
+    <button type="submit">Save Configuration</button>
+</form>
+
+{% endblock %}

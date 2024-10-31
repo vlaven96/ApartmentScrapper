@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}Apartments{% endblock %}
+{% block content %}
+<h1>Apartment Listings</h1>
+
+
+
+<!-- Button to create a new configuration -->
+<a href="{{ url_for('config.new_config') }}">
+    <button>Create New Configuration</button>
+</a>
+
+<h2>Saved Configurations</h2>
+<ul>
+    {% for config in configurations %}
+    <li>
+         <a href="{{ url_for('config.config_detail', config_id=config.id) }}">
+            <strong>City:</strong> {{ config.city }},
+            <strong>Rooms:</strong> {{ config.rooms }},
+            <strong>Price Range:</strong> {{ config.min_price }} - {{ config.max_price }},
+            <strong>Square Meters:</strong> {{ config.min_square_meters }} - {{ config.max_square_meters }},
+            <strong>Year Built:</strong> ≥ {{ config.min_year_built }},
+            <strong>Exclude Words:</strong> {{ config.exclude_words }},
+            <strong>Include Words:</strong> {{ config.include_words }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
